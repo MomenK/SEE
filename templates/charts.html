@@ -1,0 +1,197 @@
+{% extends 'base.html' %}
+
+<script>
+{% block jquery %}  //Need to some make this method repeat mang
+var endpoint = '/api/chart/data'
+var Time = []
+var Value1 = []
+var Value2 = []
+var Defaults = []
+
+
+var ctx = document.getElementById("myChart");
+var myChart = new Chart(ctx, {
+    type: 'line',
+    options: {
+           responsive: true,
+           maintainAspectRatio: false,
+           animation: {
+
+                     onComplete: function(animation) {
+                       var sourceCanvas = myChart.chart.canvas;
+                       var copyWidth = myChart.scales['y-axis-0'].width;
+                       var copyHeight = myChart.scales['y-axis-0'].height + myChart.scales['y-axis-0'].top;
+                         var targetCtx = document.getElementById("myChartAxis").getContext("2d");
+                         targetCtx.canvas.width = copyWidth;
+                 targetCtx.drawImage(sourceCanvas, copyWidth, copyHeight, copyWidth, copyHeight);
+                     }
+                 },
+          scales: {
+            yAxes: [
+              {type:"linear","id":"y-axis-0",display:true, position:"right"},
+
+            ]
+          }
+       },
+    data: {
+        labels: [],
+        datasets: [{
+            label: 'Channel 1',
+            data: [],
+            backgroundColor: ['rgba(255, 99, 132, 0.2)'],
+            borderColor: ['rgba(255, 99, 132, 1)'],
+            borderWidth: 1
+
+        }]
+    },
+});
+
+
+
+var ctx2 = document.getElementById("myChart2");
+var myChart2 = new Chart(ctx2, {
+    type: 'line',
+    options: {
+           responsive: true,
+           maintainAspectRatio: false,
+           animation: {
+
+                     onComplete: function(animation) {
+                       var sourceCanvas = myChart.chart.canvas;
+                       var copyWidth = myChart.scales['y-axis-0'].width;
+                       var copyHeight = myChart.scales['y-axis-0'].height + myChart.scales['y-axis-0'].top;
+                         var targetCtx = document.getElementById("myChartAxis").getContext("2d");
+                         targetCtx.canvas.width = copyWidth;
+                 targetCtx.drawImage(sourceCanvas, copyWidth, copyHeight, copyWidth, copyHeight);
+                     }
+                 },
+          scales: {
+            yAxes: [
+              {type:"linear","id":"y-axis-0",display:true, position:"right"},
+
+            ]
+          }
+       },
+    data: {
+        labels: [],
+        datasets: [{
+            label: 'Channel 2',
+            data: [],
+            backgroundColor: ['rgba(54, 162, 235, 0.2)'],
+            borderColor: ['rgba(54, 162, 232, 1)'],
+            borderWidth: 1
+
+        }]
+    },
+});
+
+
+
+
+function refresh() {
+
+      $.ajax({
+          method: "GET",
+          url:endpoint,
+          success: function(data){
+            Time = data.time
+            Value1 = data.value1
+            Value2 = data.value2
+            setChart()
+            console.log(data)
+          },
+          error:function(data){
+            console.log("error")
+          }
+
+    });
+
+}
+
+
+
+
+
+function myFunction() {
+   setInterval(refresh, 1000);
+}
+
+
+myFunction()
+
+
+// Pushes only the latest elements, by comparing Thier primary keys
+function setChart(){
+
+  Value1 = Value1.map(Number)
+  Value2 = Value2.map(Number)
+
+  Defaults = Value1
+  Pusher(myChart)
+  Defaults = []
+  Defaults = Value2
+  Pusher(myChart2)
+
+
+
+  Defaults = []
+  Time = []
+  Value1 = []
+  Value2 = []
+  var newwidth = $('.chartAreaWrapper2').width()+60;
+  $('.chartAreaWrapper2').width(newwidth);
+   $('.chartAreaWrapper').animate({scrollLeft:newwidth});
+
+}
+
+function Pusher(self) {
+
+
+for (i=0; i< Defaults.length; ++i) {
+  self.data.datasets[0].data.push(Defaults[i]); // Behind by one !!
+  self.data.labels.push(Time[i]);
+
+}
+
+
+  self.update();
+
+
+}
+
+
+{% endblock %}
+
+
+</script>
+
+{% block content %}
+
+<div class='row'>
+    <div class='col-sm'>
+        <h1>ECoG1</h1>
+        <div class="chartWrapper">
+            <div class="chartAreaWrapper">
+              <div class="chartAreaWrapper2">
+                  <canvas id="myChart"></canvas>
+              </div>
+            </div>
+
+            <canvas id="myChartAxis" height="300px" width="0"></canvas>
+        </div>
+
+        <h1>ECoG2</h1>
+        <div class="chartWrapper">
+            <div class="chartAreaWrapper">
+              <div class="chartAreaWrapper2">
+                  <canvas id="myChart2"></canvas>
+              </div>
+            </div>
+
+            <canvas id="myChartAxis" height="300px" width="0"></canvas>
+        </div>
+
+    </div>
+</div>
+
+{% endblock content %}

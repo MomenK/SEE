@@ -109,16 +109,11 @@ function refresh() {
 }
 
 
-
-
-
 function myFunction() {
-   setInterval(refresh, 3000);
+   setInterval(refresh, 500);
 }
 
-
 myFunction()
-
 
 // Pushes only the latest elements, by comparing Thier primary keys
 function setChart(){
@@ -138,9 +133,12 @@ function setChart(){
   Time = []
   Value1 = []
   Value2 = []
+    if (document.getElementById("button").innerText == "Scroll Off")
+    {
   var newwidth = $('.chartAreaWrapper2').width()+60;
   $('.chartAreaWrapper2').width(newwidth);
    $('.chartAreaWrapper').animate({scrollLeft:newwidth});
+ }
 
 }
 
@@ -160,6 +158,8 @@ for (i=0; i< Defaults.length; ++i) {
 }
 
 
+
+
 {% endblock %}
 
 
@@ -171,7 +171,7 @@ for (i=0; i< Defaults.length; ++i) {
     <div class='col-sm'>
         <h1>ECoG1</h1>
         <div class="chartWrapper">
-            <div class="chartAreaWrapper">
+            <div class="chartAreaWrapper" id = "momen" >
               <div class="chartAreaWrapper2">
                   <canvas id="myChart"></canvas>
               </div>
@@ -182,7 +182,7 @@ for (i=0; i< Defaults.length; ++i) {
 
         <h1>ECoG2</h1>
         <div class="chartWrapper">
-            <div class="chartAreaWrapper">
+            <div class="chartAreaWrapper" >
               <div class="chartAreaWrapper2">
                   <canvas id="myChart2"></canvas>
               </div>
@@ -191,7 +191,38 @@ for (i=0; i< Defaults.length; ++i) {
             <canvas id="myChartAxis" height="300px" width="0"></canvas>
         </div>
 
+
+
+
+
+
     </div>
-</div>
+    </div>
+<br> <br>
+    <form name="Updater" method="get" action="" oninput="x.value=parseInt(a.value)">
+      <input type="range" name="Text" id="a" value="0" min="1" max="500" step="1"> Value = <output name="x"> 0</output>
+      <input type="submit" value="Submit" class="btn btn-primary">
+    </form>
+
+    <button onclick="action2()" id="button" value="Me" class="btn btn-success">Scroll ON</button>
+
+
+<script type="text/javascript">
+function action2() {
+//  document.getElementById("momen").style.overflowX = "hidden";
+if (document.getElementById("button").innerText == "Scroll ON")
+{
+  document.getElementById("button").innerHTML = "Scroll Off";
+  document.getElementById("button").className = "btn btn-danger";
+}
+else
+{
+  document.getElementById("button").innerHTML = "Scroll ON";
+  document.getElementById("button").className = "btn btn-success";
+}
+
+}
+</script>
+
 
 {% endblock content %}

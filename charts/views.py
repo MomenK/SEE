@@ -8,11 +8,17 @@ from django.contrib.auth import get_user_model
 from charts.models import ECoG
 
 User = get_user_model()
-sent_id = ECoG.objects.latest('id').id; #How to dynaically pass this shit?
-new_ids = 0
+sent_id = 0; #How to dynaically pass this shit?
 
 class HomeView(View):
     def get(self, request, *args, **kwargs):
+        global sent_id
+        if request.method == 'GET' and 'Text' in request.GET:
+            temp = request.GET['Text']
+            print(int(temp) )
+            sent_id = sent_id - int(temp)
+        else:
+            sent_id = 0;
         return render(request, 'charts.html', {})
 
 def get_data(request, *args, **kwargs):

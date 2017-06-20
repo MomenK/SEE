@@ -21,7 +21,7 @@ import pexpect as px
 
 i=0
 mom = ""
-word_count = 2
+word_count = 1
 index = (word_count-1)*6
 
 gatt = px.spawn('gatttool -b AA:BB:CC:DD:EE:FF -I')
@@ -37,12 +37,13 @@ x = 0
 
 while True:
     gatt.expect("Notification handle = 0x001e value: ")    #If there is no responds resent mtu 247
+    #gatt.expect("[")
     mom = gatt.readline()
 
     x = int(mom[index :index +5].replace(" ",""),16)
     print mom
     print x
-    q = ECoG(Value=x, Time=timezone.now())
+    q = ECoG(Value1=x,Value2=x, Time=timezone.now())
     q.save()
     queryset = ECoG.objects.all()
     #print([p.Time.strftime('%m/%d/%Y') for p in queryset])

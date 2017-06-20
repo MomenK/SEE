@@ -1,16 +1,115 @@
 {% extends 'base.html' %}
 
 <script>
-{% block jquery %}  //Need to some make this method repeat mang
+{% block jquery %}
+//Variables declarations mang
 var endpoint = '/api/chart/data'
 var Time = []
 var Value1 = []
 var Value2 = []
+var Value3 = []
+var Value4 = []
+var Value5 = []
+var Value6 = []
+var Value7 = []
+var Value8 = []
+var Value9 = []
+var Value10 = []
 var Defaults = []
 
+//Chart 1-> ECoG1 initialization
+var ctx = document.getElementById("ECoG1");
+var ECoG1 = new Chart(ctx, {
+    type: 'line',
+    options: {
+           responsive: true,
+           maintainAspectRatio: false,
+           animation: {
 
-var ctx = document.getElementById("myChart");
-var myChart = new Chart(ctx, {
+                     onComplete: function(animation) {
+                       var sourceCanvas = ECoG1.chart.canvas;
+                       var copyWidth = ECoG1.scales['y-axis-0'].width;
+                       var copyHeight = ECoG1.scales['y-axis-0'].height + ECoG1.scales['y-axis-0'].top;
+                         var targetCtx = document.getElementById("myChartAxis").getContext("2d");
+                         targetCtx.canvas.width = copyWidth;
+                 targetCtx.drawImage(sourceCanvas, copyWidth, copyHeight, copyWidth, copyHeight);
+                     }
+                 },
+          scales: {
+            yAxes: [
+              {type:"linear","id":"y-axis-0",display:true, position:"right"},
+
+            ]
+          }
+       },
+    data: {
+        labels: [],
+        datasets: [{
+            label: 'ECoG 1',
+            data: [],
+            backgroundColor: ['rgba(255, 99, 132, 0.2)'],
+            borderColor: ['rgba(255, 99, 132, 1)'],
+            borderWidth: 1
+
+        }]
+    },
+});
+
+
+//Chart 2-> ECoG2 initialization
+var ctx2 = document.getElementById("ECoG2");
+var ECoG2 = new Chart(ctx2, {
+    type: 'line',
+    options: {
+          legend: {
+               fullWidth: true,
+               position: "top"
+                  },
+          tooltips: {
+               callbacks: {
+                  label: function(tooltipItem) {
+                         return tooltipItem.yLabel;
+                                  }
+                        }
+                  },
+           responsive: true,
+           maintainAspectRatio: false,
+           animation: {
+
+                     onComplete: function(animation) {
+                       var sourceCanvas = myChart.chart.canvas;
+                       var copyWidth = myChart.scales['y-axis-0'].width;
+                       var copyHeight = myChart.scales['y-axis-0'].height + myChart.scales['y-axis-0'].top;
+                         var targetCtx = document.getElementById("myChartAxis").getContext("2d");
+                         targetCtx.canvas.width = copyWidth;
+                 targetCtx.drawImage(sourceCanvas, copyWidth, copyHeight, copyWidth, copyHeight);
+                     }
+                 },
+          scales: {
+            yAxes: [
+              {type:"linear","id":"y-axis-0",display:true, position:"right"},
+
+            ]
+          }
+       },
+    data: {
+        labels: [],
+        datasets: [{
+            label: 'ECoG 2',
+            data: [],
+            backgroundColor: ['rgba(54, 162, 235, 0.2)'],
+            borderColor: ['rgba(54, 162, 232, 1)'],
+            borderWidth: 1
+
+        }]
+    },
+
+
+});
+
+//Chart 3-> ECoG3 initialization
+var ctx3 = document.getElementById("ECoG3");
+var ECoG3 = new Chart(ctx3, {
     type: 'line',
     options: {
            responsive: true,
@@ -36,7 +135,277 @@ var myChart = new Chart(ctx, {
     data: {
         labels: [],
         datasets: [{
-            label: 'Channel 1',
+            label: 'ECoG 3',
+            data: [],
+            backgroundColor: ['rgba(255, 99, 132, 0.2)'],
+            borderColor: ['rgba(255, 99, 132, 1)'],
+            borderWidth: 1
+
+        }]
+    },
+});
+
+
+//Chart 4-> ECoG4 initialization
+var ctx4 = document.getElementById("ECoG4");
+var ECoG4 = new Chart(ctx4, {
+    type: 'line',
+    options: {
+           responsive: true,
+           maintainAspectRatio: false,
+           animation: {
+
+                     onComplete: function(animation) {
+                       var sourceCanvas = myChart.chart.canvas;
+                       var copyWidth = myChart.scales['y-axis-0'].width;
+                       var copyHeight = myChart.scales['y-axis-0'].height + myChart.scales['y-axis-0'].top;
+                         var targetCtx = document.getElementById("myChartAxis").getContext("2d");
+                         targetCtx.canvas.width = copyWidth;
+                 targetCtx.drawImage(sourceCanvas, copyWidth, copyHeight, copyWidth, copyHeight);
+                     }
+                 },
+          scales: {
+            yAxes: [
+              {type:"linear","id":"y-axis-0",display:true, position:"right"},
+
+            ]
+          }
+       },
+    data: {
+        labels: [],
+        datasets: [{
+            label: 'ECoG 4',
+            data: [],
+            backgroundColor: ['rgba(54, 162, 235, 0.2)'],
+            borderColor: ['rgba(54, 162, 232, 1)'],
+            borderWidth: 1
+
+        }]
+    },
+});
+
+
+//Chart 5-> ECoG5 initialization
+var ctx5 = document.getElementById("ECoG5");
+var ECoG5 = new Chart(ctx5, {
+    type: 'line',
+    options: {
+           responsive: true,
+           maintainAspectRatio: false,
+           animation: {
+
+                     onComplete: function(animation) {
+                       var sourceCanvas = myChart.chart.canvas;
+                       var copyWidth = myChart.scales['y-axis-0'].width;
+                       var copyHeight = myChart.scales['y-axis-0'].height + myChart.scales['y-axis-0'].top;
+                         var targetCtx = document.getElementById("myChartAxis").getContext("2d");
+                         targetCtx.canvas.width = copyWidth;
+                 targetCtx.drawImage(sourceCanvas, copyWidth, copyHeight, copyWidth, copyHeight);
+                     }
+                 },
+          scales: {
+            yAxes: [
+              {type:"linear","id":"y-axis-0",display:true, position:"right"},
+
+            ]
+          }
+       },
+    data: {
+        labels: [],
+        datasets: [{
+            label: 'ECoG 5',
+            data: [],
+            backgroundColor: ['rgba(255, 99, 132, 0.2)'],
+            borderColor: ['rgba(255, 99, 132, 1)'],
+            borderWidth: 1
+
+        }]
+    },
+});
+
+
+//Chart 6-> ECoG6 initialization
+var ctx6 = document.getElementById("ECoG6");
+var ECoG6 = new Chart(ctx6, {
+    type: 'line',
+    options: {
+           responsive: true,
+           maintainAspectRatio: false,
+           animation: {
+
+                     onComplete: function(animation) {
+                       var sourceCanvas = myChart.chart.canvas;
+                       var copyWidth = myChart.scales['y-axis-0'].width;
+                       var copyHeight = myChart.scales['y-axis-0'].height + myChart.scales['y-axis-0'].top;
+                         var targetCtx = document.getElementById("myChartAxis").getContext("2d");
+                         targetCtx.canvas.width = copyWidth;
+                 targetCtx.drawImage(sourceCanvas, copyWidth, copyHeight, copyWidth, copyHeight);
+                     }
+                 },
+          scales: {
+            yAxes: [
+              {type:"linear","id":"y-axis-0",display:true, position:"right"},
+
+            ]
+          }
+       },
+    data: {
+        labels: [],
+        datasets: [{
+            label: 'ECoG 6',
+            data: [],
+            backgroundColor: ['rgba(54, 162, 235, 0.2)'],
+            borderColor: ['rgba(54, 162, 232, 1)'],
+            borderWidth: 1
+
+        }]
+    },
+});
+
+
+//Chart 7-> Amp1 initialization
+var ctx7 = document.getElementById("Amp1");
+var Amp1 = new Chart(ctx7, {
+    type: 'line',
+    options: {
+           responsive: true,
+           maintainAspectRatio: false,
+           animation: {
+
+                     onComplete: function(animation) {
+                       var sourceCanvas = myChart.chart.canvas;
+                       var copyWidth = myChart.scales['y-axis-0'].width;
+                       var copyHeight = myChart.scales['y-axis-0'].height + myChart.scales['y-axis-0'].top;
+                         var targetCtx = document.getElementById("myChartAxis").getContext("2d");
+                         targetCtx.canvas.width = copyWidth;
+                 targetCtx.drawImage(sourceCanvas, copyWidth, copyHeight, copyWidth, copyHeight);
+                     }
+                 },
+          scales: {
+            yAxes: [
+              {type:"linear","id":"y-axis-0",display:true, position:"right"},
+
+            ]
+          }
+       },
+    data: {
+        labels: [],
+        datasets: [{
+            label: 'Amp 1',
+            data: [],
+            backgroundColor: ['rgba(255, 99, 132, 0.2)'],
+            borderColor: ['rgba(255, 99, 132, 1)'],
+            borderWidth: 1
+
+        }]
+    },
+});
+
+//Chart 8-> Amp1 initialization
+var ctx8 = document.getElementById("Amp2");
+var Amp2 = new Chart(ctx8, {
+    type: 'line',
+    options: {
+           responsive: true,
+           maintainAspectRatio: false,
+           animation: {
+
+                     onComplete: function(animation) {
+                       var sourceCanvas = myChart.chart.canvas;
+                       var copyWidth = myChart.scales['y-axis-0'].width;
+                       var copyHeight = myChart.scales['y-axis-0'].height + myChart.scales['y-axis-0'].top;
+                         var targetCtx = document.getElementById("myChartAxis").getContext("2d");
+                         targetCtx.canvas.width = copyWidth;
+                 targetCtx.drawImage(sourceCanvas, copyWidth, copyHeight, copyWidth, copyHeight);
+                     }
+                 },
+          scales: {
+            yAxes: [
+              {type:"linear","id":"y-axis-0",display:true, position:"right"},
+
+            ]
+          }
+       },
+    data: {
+        labels: [],
+        datasets: [{
+            label: 'Amp 2',
+            data: [],
+            backgroundColor: ['rgba(255, 99, 132, 0.2)'],
+            borderColor: ['rgba(255, 99, 132, 1)'],
+            borderWidth: 1
+
+        }]
+    },
+});
+
+//Chart 9-> Pot1 initialization
+var ctx9 = document.getElementById("Pot1");
+var Pot1 = new Chart(ctx9, {
+    type: 'line',
+    options: {
+           responsive: true,
+           maintainAspectRatio: false,
+           animation: {
+
+                     onComplete: function(animation) {
+                       var sourceCanvas = myChart.chart.canvas;
+                       var copyWidth = myChart.scales['y-axis-0'].width;
+                       var copyHeight = myChart.scales['y-axis-0'].height + myChart.scales['y-axis-0'].top;
+                         var targetCtx = document.getElementById("myChartAxis").getContext("2d");
+                         targetCtx.canvas.width = copyWidth;
+                 targetCtx.drawImage(sourceCanvas, copyWidth, copyHeight, copyWidth, copyHeight);
+                     }
+                 },
+          scales: {
+            yAxes: [
+              {type:"linear","id":"y-axis-0",display:true, position:"right"},
+
+            ]
+          }
+       },
+    data: {
+        labels: [],
+        datasets: [{
+            label: 'Pot 1',
+            data: [],
+            backgroundColor: ['rgba(255, 99, 132, 0.2)'],
+            borderColor: ['rgba(255, 99, 132, 1)'],
+            borderWidth: 1
+
+        }]
+    },
+});
+
+//Chart 10-> Pot1 initialization
+var ctx10 = document.getElementById("Pot2");
+var Pot2 = new Chart(ctx10, {
+    type: 'line',
+    options: {
+           responsive: true,
+           maintainAspectRatio: false,
+           animation: {
+
+                     onComplete: function(animation) {
+                       var sourceCanvas = myChart.chart.canvas;
+                       var copyWidth = myChart.scales['y-axis-0'].width;
+                       var copyHeight = myChart.scales['y-axis-0'].height + myChart.scales['y-axis-0'].top;
+                         var targetCtx = document.getElementById("myChartAxis").getContext("2d");
+                         targetCtx.canvas.width = copyWidth;
+                 targetCtx.drawImage(sourceCanvas, copyWidth, copyHeight, copyWidth, copyHeight);
+                     }
+                 },
+          scales: {
+            yAxes: [
+              {type:"linear","id":"y-axis-0",display:true, position:"right"},
+
+            ]
+          }
+       },
+    data: {
+        labels: [],
+        datasets: [{
+            label: 'Pot 2',
             data: [],
             backgroundColor: ['rgba(255, 99, 132, 0.2)'],
             borderColor: ['rgba(255, 99, 132, 1)'],
@@ -48,42 +417,6 @@ var myChart = new Chart(ctx, {
 
 
 
-var ctx2 = document.getElementById("myChart2");
-var myChart2 = new Chart(ctx2, {
-    type: 'line',
-    options: {
-           responsive: true,
-           maintainAspectRatio: false,
-           animation: {
-
-                     onComplete: function(animation) {
-                       var sourceCanvas = myChart.chart.canvas;
-                       var copyWidth = myChart.scales['y-axis-0'].width;
-                       var copyHeight = myChart.scales['y-axis-0'].height + myChart.scales['y-axis-0'].top;
-                         var targetCtx = document.getElementById("myChartAxis").getContext("2d");
-                         targetCtx.canvas.width = copyWidth;
-                 targetCtx.drawImage(sourceCanvas, copyWidth, copyHeight, copyWidth, copyHeight);
-                     }
-                 },
-          scales: {
-            yAxes: [
-              {type:"linear","id":"y-axis-0",display:true, position:"right"},
-
-            ]
-          }
-       },
-    data: {
-        labels: [],
-        datasets: [{
-            label: 'Channel 2',
-            data: [],
-            backgroundColor: ['rgba(54, 162, 235, 0.2)'],
-            borderColor: ['rgba(54, 162, 232, 1)'],
-            borderWidth: 1
-
-        }]
-    },
-});
 
 
 
@@ -97,6 +430,15 @@ function refresh() {
             Time = data.time
             Value1 = data.value1
             Value2 = data.value2
+            Value3 = data.value3
+            Value4 = data.value4
+            Value5 = data.value5
+            Value6 = data.value6
+            Value7 = data.value7
+            Value8 = data.value8
+            Value9 = data.value9
+            Value10 = data.value10
+
             setChart()
             console.log(data)
           },
@@ -120,22 +462,82 @@ function setChart(){
 
   Value1 = Value1.map(Number)
   Value2 = Value2.map(Number)
+  Value3 = Value3.map(Number)
+  Value4 = Value4.map(Number)
+  Value5 = Value5.map(Number)
+  Value6 = Value6.map(Number)
+  Value7 = Value7.map(Number)
+  Value8 = Value8.map(Number)
+  Value9 = Value9.map(Number)
+  Value10 = Value10.map(Number)
+
+
+
+
 
   Defaults = Value1
-  Pusher(myChart)
+  Pusher(ECoG1)
+
   Defaults = []
   Defaults = Value2
-  Pusher(myChart2)
+  Pusher(ECoG2)
 
+  Defaults = []
+  Defaults = Value3
+  Pusher(ECoG3)
+
+  Defaults = []
+  Defaults = Value4
+  Pusher(ECoG4)
+
+  Defaults = []
+  Defaults = Value5
+  Pusher(ECoG5)
+
+  Defaults = []
+  Defaults = Value6
+  Pusher(ECoG6)
+
+  Defaults = []
+  Defaults = Value7
+  Pusher(Amp1)
+
+  Defaults = []
+  Defaults = Value8
+  Pusher(Amp2)
+
+  Defaults = []
+  Defaults = Value9
+  Pusher(Pot1)
+//  console.log("Here")
+//  console.log(Defaults)
+
+
+  Defaults = []
+  Defaults = Value10
+  Pusher(Pot2)
 
 
   Defaults = []
   Time = []
   Value1 = []
   Value2 = []
+  Value3 = []
+  Value4 = []
+  Value5 = []
+  Value6 = []
+  Value7 = []
+  Value8 = []
+  Value9 = []
+  Value10 = []
+
+
+
+
+
     if (document.getElementById("button").innerText == "Scroll Off")
     {
-  var newwidth = $('.chartAreaWrapper2').width()+60;
+  var newwidth = $('.chartAreaWrapper2').width()+10;
   $('.chartAreaWrapper2').width(newwidth);
    $('.chartAreaWrapper').animate({scrollLeft:newwidth});
  }
@@ -146,58 +548,161 @@ function Pusher(self) {
 
 
 for (i=0; i< Defaults.length; ++i) {
+    if(!isNaN(Defaults[i]))
+    {
   self.data.datasets[0].data.push(Defaults[i]); // Behind by one !!
   self.data.labels.push(Time[i]);
+    }
 
 }
-
-
   self.update();
-
-
 }
-
-
 
 
 {% endblock %}
-
-
 </script>
+
+
+
 
 {% block content %}
 
 <div class='row'>
-    <div class='col-sm'>
-        <h1>ECoG1</h1>
+<h1 class="text-center"> TBI events monitor</h1>
+<br><br>
+    <div class='col-sm-6'>
+        <!-- <h1><small>ECoG1</small></h1> -->
         <div class="chartWrapper">
-            <div class="chartAreaWrapper" id = "momen" >
+            <div class="chartAreaWrapper">
               <div class="chartAreaWrapper2">
-                  <canvas id="myChart"></canvas>
+                  <canvas id="ECoG1"></canvas>
               </div>
             </div>
-
             <canvas id="myChartAxis" height="300px" width="0"></canvas>
         </div>
+    </div>
 
-        <h1>ECoG2</h1>
+    <div class='col-sm-6'>
+      <!-- <h1><small>ECoG2</small></h1> -->
         <div class="chartWrapper">
             <div class="chartAreaWrapper" >
               <div class="chartAreaWrapper2">
-                  <canvas id="myChart2"></canvas>
+                  <canvas id="ECoG2"></canvas>
               </div>
             </div>
-
             <canvas id="myChartAxis" height="300px" width="0"></canvas>
         </div>
-
-
-
-
-
-
     </div>
+
+
+    <div class='col-sm-6'>
+        <!-- <h1><small>ECoG3</small></h1> -->
+        <div class="chartWrapper">
+            <div class="chartAreaWrapper" >
+              <div class="chartAreaWrapper2">
+                  <canvas id="ECoG3"></canvas>
+              </div>
+            </div>
+            <canvas id="myChartAxis" height="300px" width="0"></canvas>
+        </div>
     </div>
+
+    <div class='col-sm-6'>
+          <!-- <h1><small>ECoG4</small></h1> -->
+        <div class="chartWrapper">
+            <div class="chartAreaWrapper" >
+              <div class="chartAreaWrapper2">
+                  <canvas id="ECoG4"></canvas>
+              </div>
+            </div>
+            <canvas id="myChartAxis" height="300px" width="0"></canvas>
+        </div>
+    </div>
+
+
+
+    <div class='col-sm-6'>
+        <!-- <h1><small>ECoG5</small></h1> -->
+        <div class="chartWrapper">
+            <div class="chartAreaWrapper" >
+              <div class="chartAreaWrapper2">
+                  <canvas id="ECoG5"></canvas>
+              </div>
+            </div>
+            <canvas id="myChartAxis" height="300px" width="0"></canvas>
+        </div>
+    </div>
+
+    <div class='col-sm-6'>
+          <!-- <h1><small>ECoG6</small></h1> -->
+        <div class="chartWrapper">
+            <div class="chartAreaWrapper" >
+              <div class="chartAreaWrapper2">
+                  <canvas id="ECoG6"></canvas>
+              </div>
+            </div>
+            <canvas id="myChartAxis" height="300px" width="0"></canvas>
+        </div>
+    </div>
+
+    <div class='col-sm-6'>
+        <!-- <h1><small>Amp1</small></h1> -->
+        <div class="chartWrapper">
+            <div class="chartAreaWrapper" >
+              <div class="chartAreaWrapper2">
+                  <canvas id="Amp1"></canvas>
+              </div>
+            </div>
+            <canvas id="myChartAxis" height="300px" width="0"></canvas>
+        </div>
+    </div>
+
+    <div class='col-sm-6'>
+          <!-- <h1><small>Amp2</small></h1> -->
+        <div class="chartWrapper">
+            <div class="chartAreaWrapper" >
+              <div class="chartAreaWrapper2">
+                  <canvas id="Amp2"></canvas>
+              </div>
+            </div>
+            <canvas id="myChartAxis" height="300px" width="0"></canvas>
+        </div>
+    </div>
+
+    <div class='col-sm-6'>
+        <!-- <h1><small>Pot1</small></h1> -->
+        <div class="chartWrapper">
+            <div class="chartAreaWrapper" >
+              <div class="chartAreaWrapper2">
+                  <canvas id="Pot1"></canvas>
+              </div>
+            </div>
+            <canvas id="myChartAxis" height="300px" width="0"></canvas>
+        </div>
+    </div>
+
+    <div class='col-sm-6'>
+          <!-- <h1><small>Pot2</small></h1> -->
+        <div class="chartWrapper">
+            <div class="chartAreaWrapper" >
+              <div class="chartAreaWrapper2">
+                  <canvas id="Pot2"></canvas>
+              </div>
+            </div>
+            <canvas id="myChartAxis" height="300px" width="0"></canvas>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
 <br> <br>
     <form name="Updater" method="get" action="" oninput="x.value=parseInt(a.value)">
       <input type="range" name="Text" id="a" value="0" min="1" max="500" step="1"> Value = <output name="x"> 0</output>
@@ -209,7 +714,6 @@ for (i=0; i< Defaults.length; ++i) {
 
 <script type="text/javascript">
 function action2() {
-//  document.getElementById("momen").style.overflowX = "hidden";
 if (document.getElementById("button").innerText == "Scroll ON")
 {
   document.getElementById("button").innerHTML = "Scroll Off";

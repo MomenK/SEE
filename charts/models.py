@@ -26,5 +26,13 @@ class ECoG(models.Model):
     Time = models.DateTimeField('date published')
     Value1 = models.IntegerField(default = 0)
     Value2 = models.IntegerField(default = 0)
+    Value3 = models.IntegerField(default = 0)
+    Value4 = models.IntegerField(default = 0)
+    Value5 = models.IntegerField(default = 0)
+    Value6 = models.IntegerField(default = 0)
+    Value7 = models.IntegerField(default = 0)
+    Value8 = models.IntegerField(default = 0)
+    Value9 = models.IntegerField(default = 0)
+    Value10 = models.IntegerField(default = 0)
     # def __str__(self):
     #     return str(self.Time)

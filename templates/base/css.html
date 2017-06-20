@@ -16,14 +16,16 @@
             pointer-events:none;
         }
 .chartAreaWrapper {
-          overflow-x: auto;
+          overflow-x: hidden;
+    /*or auto to show the bar*/
             position: relative;
             width: 100%;
+            scroll-behavior: smooth;
+
         }
 
         .chartAreaWrapper2 {
-
             position: relative;
-            height: 300px;
+            height: 200px;
         }
 </style>

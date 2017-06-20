@@ -20,7 +20,7 @@ from charts.models import ECoG
 from django.utils import timezone
 
 i=0
-word_count = 2
+word_count = 1
 index = (word_count-1)*6
 x =0
 
@@ -33,13 +33,16 @@ ser.flushInput()
 ser.flushOutput()
 
 while True:
+    #print( ser.readline())
     data_raw = ser.readline()[0:-2];
-    if (data_raw[0]=="[" and "[" not in data_raw[1:-1]):
-        data_raw = data_raw[1:-1]
-        print(data_raw[index :index +5])
+    print(data_raw)
+    if(data_raw):
+        if (data_raw[0]=="[" and "[" not in data_raw[1:-1]):
+            data_raw = data_raw[1:-1]
+            print(data_raw[index :index +5])
 
-        x = int(data_raw[index :index +5].replace(" ",""),16)
-        print(x)
-        q = ECoG(Value=x, Time=timezone.now())
-        q.save()
-        queryset = ECoG.objects.all()
+            x = int(data_raw[index :index +5].replace(" ",""),16)
+            print(x)
+            q = ECoG(Value1=x,Value2=x, Time=timezone.now())
+            q.save()
+            queryset = ECoG.objects.all()

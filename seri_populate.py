@@ -50,9 +50,11 @@ ser.flushOutput()
 
 while True:
     #print( ser.readline())
-    data_raw = ser.readline()[0:-5];
-    if len(data_raw)>320:
-        #print(len(data_raw))
+    data_raw = ser.readline()[0:-1];
+    #print(data_raw)
+    if len(data_raw) == 341:
+        data_raw = data_raw[0:-4]
+        #print(data_raw)
         n= 3*16
         data_listed= [data_raw [i:i+n] for i in range(0, len(data_raw ), n)]
         n =3
@@ -77,6 +79,7 @@ while True:
         aux4 = None
         select = y[7][0]
         for m in range(0,len(y[0])):
+        #for m in range(0,1):
             if select == "0":
                 aux1 = int(y[6][m],16)
             elif select =="1":
@@ -85,12 +88,12 @@ while True:
                 aux3 = int(y[6][m],16)
             elif select == "3":
                 aux4 = int(y[6][m],16)
-            #print(y[0][m],y[1][m],y[2][m],y[3][m],y[4][m],y[5][m],aux1,aux2,aux3,aux4)
-            print(int(y[0][m],16),int(y[1][m],16),int(y[2][m],16),int(y[3][m],16),int(y[4][m],16),int(y[5][m],16),aux1,aux2,aux3,aux4)
+            print(y[0][m],y[1][m],y[2][m],y[3][m],y[4][m],y[5][m],aux1,aux2,aux3,aux4)
+            #print(int(y[0][m],16),int(y[1][m],16),int(y[2][m],16),int(y[3][m],16),int(y[4][m],16),int(y[5][m],16),aux1,aux2,aux3,aux4)
 
             q = ECoG(Value1= int(y[0][m],16),Value2= int(y[1][m],16),Value3= int(y[2][m],16),Value4= int(y[3][m],16),Value5= int(y[4][m],16),Value6= int(y[5][m],16),Value7=aux1,Value8=aux2,Value9=aux3,Value10=aux4, Time=timezone.now())
             q.save()
-        print(select)
+        #print(select)
             #querint(yset = ECoG.objects.all()
         # if(data_raw):
         #     if (data_raw[0]=="[" and "[" not in data_raw[1:-1]):

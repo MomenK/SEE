@@ -22,18 +22,19 @@ var ctx = document.getElementById("ECoG1");
 var ECoG1 = new Chart(ctx, {
     type: 'line',
     options: {
+
+      elements:{
+                line:{
+                        tension:0,
+                      }
+
+                },
            responsive: true,
            maintainAspectRatio: false,
+        //   responsiveAnimationDuration: 0,
            animation: {
+                    duration : 0,
 
-                     onComplete: function(animation) {
-                       var sourceCanvas = ECoG1.chart.canvas;
-                       var copyWidth = ECoG1.scales['y-axis-0'].width;
-                       var copyHeight = ECoG1.scales['y-axis-0'].height + ECoG1.scales['y-axis-0'].top;
-                         var targetCtx = document.getElementById("myChartAxis").getContext("2d");
-                         targetCtx.canvas.width = copyWidth;
-                 targetCtx.drawImage(sourceCanvas, copyWidth, copyHeight, copyWidth, copyHeight);
-                     }
                  },
           scales: {
             yAxes: [
@@ -74,12 +75,13 @@ var ECoG2 = new Chart(ctx2, {
                   },
            responsive: true,
            maintainAspectRatio: false,
+        //   responsiveAnimationDuration: 0,
            animation: {
-
+                      duration : 20,
                      onComplete: function(animation) {
-                       var sourceCanvas = myChart.chart.canvas;
-                       var copyWidth = myChart.scales['y-axis-0'].width;
-                       var copyHeight = myChart.scales['y-axis-0'].height + myChart.scales['y-axis-0'].top;
+                       var sourceCanvas = ECoG2.chart.canvas;
+                       var copyWidth = ECoG2.scales['y-axis-0'].width;
+                       var copyHeight = ECoG2.scales['y-axis-0'].height + ECoG2.scales['y-axis-0'].top;
                          var targetCtx = document.getElementById("myChartAxis").getContext("2d");
                          targetCtx.canvas.width = copyWidth;
                  targetCtx.drawImage(sourceCanvas, copyWidth, copyHeight, copyWidth, copyHeight);
@@ -115,11 +117,11 @@ var ECoG3 = new Chart(ctx3, {
            responsive: true,
            maintainAspectRatio: false,
            animation: {
-
+                duration : 20,
                      onComplete: function(animation) {
-                       var sourceCanvas = myChart.chart.canvas;
-                       var copyWidth = myChart.scales['y-axis-0'].width;
-                       var copyHeight = myChart.scales['y-axis-0'].height + myChart.scales['y-axis-0'].top;
+                       var sourceCanvas = ECoG3.chart.canvas;
+                       var copyWidth = ECoG3.scales['y-axis-0'].width;
+                       var copyHeight = ECoG3.scales['y-axis-0'].height + ECoG3.scales['y-axis-0'].top;
                          var targetCtx = document.getElementById("myChartAxis").getContext("2d");
                          targetCtx.canvas.width = copyWidth;
                  targetCtx.drawImage(sourceCanvas, copyWidth, copyHeight, copyWidth, copyHeight);
@@ -154,11 +156,11 @@ var ECoG4 = new Chart(ctx4, {
            responsive: true,
            maintainAspectRatio: false,
            animation: {
-
+  duration : 20,
                      onComplete: function(animation) {
-                       var sourceCanvas = myChart.chart.canvas;
-                       var copyWidth = myChart.scales['y-axis-0'].width;
-                       var copyHeight = myChart.scales['y-axis-0'].height + myChart.scales['y-axis-0'].top;
+                       var sourceCanvas = ECoG4.chart.canvas;
+                       var copyWidth = ECoG4.scales['y-axis-0'].width;
+                       var copyHeight = ECoG4.scales['y-axis-0'].height + ECoG4.scales['y-axis-0'].top;
                          var targetCtx = document.getElementById("myChartAxis").getContext("2d");
                          targetCtx.canvas.width = copyWidth;
                  targetCtx.drawImage(sourceCanvas, copyWidth, copyHeight, copyWidth, copyHeight);
@@ -193,11 +195,11 @@ var ECoG5 = new Chart(ctx5, {
            responsive: true,
            maintainAspectRatio: false,
            animation: {
-
+             duration : 20,
                      onComplete: function(animation) {
-                       var sourceCanvas = myChart.chart.canvas;
-                       var copyWidth = myChart.scales['y-axis-0'].width;
-                       var copyHeight = myChart.scales['y-axis-0'].height + myChart.scales['y-axis-0'].top;
+                       var sourceCanvas = ECoG5.chart.canvas;
+                       var copyWidth = ECoG5.scales['y-axis-0'].width;
+                       var copyHeight = ECoG5.scales['y-axis-0'].height + ECoG5.scales['y-axis-0'].top;
                          var targetCtx = document.getElementById("myChartAxis").getContext("2d");
                          targetCtx.canvas.width = copyWidth;
                  targetCtx.drawImage(sourceCanvas, copyWidth, copyHeight, copyWidth, copyHeight);
@@ -229,14 +231,15 @@ var ctx6 = document.getElementById("ECoG6");
 var ECoG6 = new Chart(ctx6, {
     type: 'line',
     options: {
+
            responsive: true,
            maintainAspectRatio: false,
            animation: {
-
+              duration : 20,
                      onComplete: function(animation) {
-                       var sourceCanvas = myChart.chart.canvas;
-                       var copyWidth = myChart.scales['y-axis-0'].width;
-                       var copyHeight = myChart.scales['y-axis-0'].height + myChart.scales['y-axis-0'].top;
+                       var sourceCanvas = ECoG6.chart.canvas;
+                       var copyWidth = ECoG6.scales['y-axis-0'].width;
+                       var copyHeight = ECoG6.scales['y-axis-0'].height + ECoG6.scales['y-axis-0'].top;
                          var targetCtx = document.getElementById("myChartAxis").getContext("2d");
                          targetCtx.canvas.width = copyWidth;
                  targetCtx.drawImage(sourceCanvas, copyWidth, copyHeight, copyWidth, copyHeight);
@@ -271,11 +274,11 @@ var Amp1 = new Chart(ctx7, {
            responsive: true,
            maintainAspectRatio: false,
            animation: {
-
+             duration : 20,
                      onComplete: function(animation) {
-                       var sourceCanvas = myChart.chart.canvas;
-                       var copyWidth = myChart.scales['y-axis-0'].width;
-                       var copyHeight = myChart.scales['y-axis-0'].height + myChart.scales['y-axis-0'].top;
+                       var sourceCanvas = Amp1.chart.canvas;
+                       var copyWidth = Amp1.scales['y-axis-0'].width;
+                       var copyHeight = Amp1.scales['y-axis-0'].height + Amp1.scales['y-axis-0'].top;
                          var targetCtx = document.getElementById("myChartAxis").getContext("2d");
                          targetCtx.canvas.width = copyWidth;
                  targetCtx.drawImage(sourceCanvas, copyWidth, copyHeight, copyWidth, copyHeight);
@@ -309,11 +312,11 @@ var Amp2 = new Chart(ctx8, {
            responsive: true,
            maintainAspectRatio: false,
            animation: {
-
+             duration : 20,
                      onComplete: function(animation) {
-                       var sourceCanvas = myChart.chart.canvas;
-                       var copyWidth = myChart.scales['y-axis-0'].width;
-                       var copyHeight = myChart.scales['y-axis-0'].height + myChart.scales['y-axis-0'].top;
+                       var sourceCanvas = Amp2.chart.canvas;
+                       var copyWidth = Amp2.scales['y-axis-0'].width;
+                       var copyHeight = Amp2.scales['y-axis-0'].height + Amp2.scales['y-axis-0'].top;
                          var targetCtx = document.getElementById("myChartAxis").getContext("2d");
                          targetCtx.canvas.width = copyWidth;
                  targetCtx.drawImage(sourceCanvas, copyWidth, copyHeight, copyWidth, copyHeight);
@@ -347,11 +350,11 @@ var Pot1 = new Chart(ctx9, {
            responsive: true,
            maintainAspectRatio: false,
            animation: {
-
+             duration : 20,
                      onComplete: function(animation) {
-                       var sourceCanvas = myChart.chart.canvas;
-                       var copyWidth = myChart.scales['y-axis-0'].width;
-                       var copyHeight = myChart.scales['y-axis-0'].height + myChart.scales['y-axis-0'].top;
+                       var sourceCanvas = Pot1.chart.canvas;
+                       var copyWidth = Pot1.scales['y-axis-0'].width;
+                       var copyHeight = Pot1.scales['y-axis-0'].height + Pot1.scales['y-axis-0'].top;
                          var targetCtx = document.getElementById("myChartAxis").getContext("2d");
                          targetCtx.canvas.width = copyWidth;
                  targetCtx.drawImage(sourceCanvas, copyWidth, copyHeight, copyWidth, copyHeight);
@@ -385,11 +388,12 @@ var Pot2 = new Chart(ctx10, {
            responsive: true,
            maintainAspectRatio: false,
            animation: {
+             duration : 20,
 
                      onComplete: function(animation) {
-                       var sourceCanvas = myChart.chart.canvas;
-                       var copyWidth = myChart.scales['y-axis-0'].width;
-                       var copyHeight = myChart.scales['y-axis-0'].height + myChart.scales['y-axis-0'].top;
+                       var sourceCanvas = Pot2.chart.canvas;
+                       var copyWidth = Pot2.scales['y-axis-0'].width;
+                       var copyHeight = Pot2.scales['y-axis-0'].height + Pot2.scales['y-axis-0'].top;
                          var targetCtx = document.getElementById("myChartAxis").getContext("2d");
                          targetCtx.canvas.width = copyWidth;
                  targetCtx.drawImage(sourceCanvas, copyWidth, copyHeight, copyWidth, copyHeight);
@@ -452,7 +456,7 @@ function refresh() {
 
 
 function myFunction() {
-   setInterval(refresh, 500);
+   setInterval(refresh, 1000);
 }
 
 myFunction()
@@ -483,7 +487,7 @@ function setChart(){
   Pusher(ECoG2)
 
   Defaults = []
-/*  Defaults = Value3
+  Defaults = Value3
   Pusher(ECoG3)
 
   Defaults = []
@@ -516,7 +520,7 @@ function setChart(){
   Defaults = []
   Defaults = Value10
   Pusher(Pot2)
-*/
+
 
   Defaults = []
   Time = []
@@ -537,13 +541,14 @@ function setChart(){
 
     if (document.getElementById("button").innerText == "Scroll Off")
     {
-  var newwidth = $('.chartAreaWrapper2').width()+60;
+  var newwidth = $('.chartAreaWrapper2').width()+100;
   $('.chartAreaWrapper2').width(newwidth);
    $('.chartAreaWrapper').animate({scrollLeft:newwidth});
  }
 
 }
 
+var c = 0;
 function Pusher(self) {
 
 
@@ -552,9 +557,24 @@ for (i=0; i< Defaults.length; ++i) {
     {
   self.data.datasets[0].data.push(Defaults[i]); // Behind by one !!
   self.data.labels.push(Time[i]);
+  c = self.data.datasets[0].data.length;
+  var limit = parseInt(document.getElementById("a").value);
+
+  var str = window.location.href;
+  str = str.substring(str.indexOf("=") + 1);
+
+
+  console.log("Here")
+  console.log(str)
+  if (c > parseInt(str)){
+  self.data.datasets[0].data.shift();;
+  self.data.labels.shift();
+}
+
     }
 
 }
+
   self.update();
 }
 

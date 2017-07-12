@@ -50,19 +50,26 @@ ser.flushOutput()
 
 while True:
     #print( ser.readline())
-    data_raw = ser.readline()[0:-1];
+    data_raw = ser.readline()[0:-2];
+    data_bits = 336
+    semantics = 3
     #print(data_raw)
-    if len(data_raw) == 341:
-        data_raw = data_raw[0:-4]
+    if (len(data_raw) > data_bits and len(data_raw) <= data_bits+ semantics) :
+        #data_raw = data_raw[0:-1]
+        #print(data_raw)
+        #print(len(data_raw))
+        check = data_raw[336:]
         #print(data_raw)
         n= 3*16
         data_listed= [data_raw [i:i+n] for i in range(0, len(data_raw ), n)]
         n =3
         x =[]
+        #print(data_listed)
         for J in data_listed:
             x.append([J [i:i+n] for i in range(0, len(J), n)])
         y = np.asarray(x)
-        #print(y)
+        # print("Fullubabe")
+        # print(y)
         # print(len(y[0]))
         # print(y[0])
         # print(y[1])
@@ -71,22 +78,24 @@ while True:
         # print(y[4])
         # print(y[5])
         # print(y[6])
-        # print(y[7])
-
-        aux1 = None
-        aux2 = None
-        aux3 = None
-        aux4 = None
-        select = y[7][0]
+        #print(y[7])
+        print(check)
+        #select = y[7][0]
         for m in range(0,len(y[0])):
+            aux1 = None
+            aux2 = None
+            aux3 = None
+            aux4 = None
+            select = (m+1)%4
+            print(select)
         #for m in range(0,1):
-            if select == "0":
+            if select == 0:
                 aux1 = int(y[6][m],16)
-            elif select =="1":
+            elif select == 1:
                 aux2 = int(y[6][m],16)
-            elif select == "2":
+            elif select == 2:
                 aux3 = int(y[6][m],16)
-            elif select == "3":
+            elif select == 3:
                 aux4 = int(y[6][m],16)
             print(y[0][m],y[1][m],y[2][m],y[3][m],y[4][m],y[5][m],aux1,aux2,aux3,aux4)
             #print(int(y[0][m],16),int(y[1][m],16),int(y[2][m],16),int(y[3][m],16),int(y[4][m],16),int(y[5][m],16),aux1,aux2,aux3,aux4)

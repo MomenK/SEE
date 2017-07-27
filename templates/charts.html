@@ -71,7 +71,7 @@ var ECoG2 = new Chart(ctx2, {
                         tension:0,
                       },
                 point:{
-                        radius: 0 ,
+                        radius: 5 ,
                         hitRadius: 10, hoverRadius: 10
                       }
 
@@ -489,24 +489,24 @@ function setChart(){
 
 
 
-  Defaults = Value1
-  Pusher(ECoG1)
+   Defaults = Value1
+   Pusher(ECoG1)
 
   Defaults = []
   Defaults = Value2
   Pusher(ECoG2)
-
-  Defaults = []
-  Defaults = Value3
-  Pusher(ECoG3)
-
-  Defaults = []
-  Defaults = Value4
-  Pusher(ECoG4)
-
-  Defaults = []
-  Defaults = Value5
-  Pusher(ECoG5)
+  //
+  // Defaults = []
+  // Defaults = Value3
+  // Pusher(ECoG3)
+  //
+  // Defaults = []
+  // Defaults = Value4
+  // Pusher(ECoG4)
+  //
+  // Defaults = []
+  // Defaults = Value5
+  // Pusher(ECoG5)
 
   Defaults = []
   Defaults = Value6
@@ -601,7 +601,6 @@ for (i=0; i< Defaults.length; ++i) {
 <h1 class="text-center"> TBI events monitor</h1>
 <br><br>
     <div class='col-sm-12'>
-        <!-- <h1><small>ECoG1</small></h1> -->
         <div class="chartWrapper">
             <div class="chartAreaWrapper">
               <div class="chartAreaWrapper2">
@@ -612,7 +611,7 @@ for (i=0; i< Defaults.length; ++i) {
         </div>
     </div>
 
-    <div class='col-sm-6'>
+    <div class='col-sm-12'>
       <!-- <h1><small>ECoG2</small></h1> -->
         <div class="chartWrapper">
             <div class="chartAreaWrapper" >
@@ -663,7 +662,7 @@ for (i=0; i< Defaults.length; ++i) {
         </div>
     </div>
 
-    <div class='col-sm-6'>
+    <div class='col-sm-12'>
           <!-- <h1><small>ECoG6</small></h1> -->
         <div class="chartWrapper">
             <div class="chartAreaWrapper" >
@@ -735,7 +734,7 @@ for (i=0; i< Defaults.length; ++i) {
 
 <br> <br>
     <form name="Updater" method="get" action="" oninput="x.value=parseInt(a.value)">
-      <input type="range" name="Text" id="a" value="0" min="1" max="500" step="1"> Value = <output name="x"> 0</output>
+      <input type="range" name="Text" id="a" value="0" min="1" max="60000" step="1"> Value = <output name="x"> 0</output>
       <input type="submit" value="Submit" class="btn btn-primary">
     </form>
 

@@ -29,10 +29,10 @@ select = 0
 
 
 while True:
-    time.sleep(0.5)
+    #time.sleep(0.0004)
 
 
-    x1 = random.randint(0,20)
+    x1 = x1+1
     x2 = random.randint(10,20)
     x3 = random.randint(10,20)
     x4 = random.randint(10,20)

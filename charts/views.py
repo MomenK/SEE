@@ -8,7 +8,7 @@ from django.contrib.auth import get_user_model
 from charts.models import ECoG
 
 User = get_user_model()
-sent_id = 0; #How to dynaically pass this param?
+sent_id = ECoG.objects.latest('id').id - 100; #How to dynaically pass this param? was 0
 
 class HomeView(View):
     def get(self, request, *args, **kwargs):

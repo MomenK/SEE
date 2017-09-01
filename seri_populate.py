@@ -61,7 +61,7 @@ while True:
     #print(data_raw)
     if (len(data_raw) == data_bits ) :
         #data_raw = data_raw[0:-1]
-        #print(data_raw)
+        print(data_raw)
         #print(len(data_raw))
         #print(data_raw)
         n= 3*16
@@ -102,9 +102,9 @@ while True:
             elif select == 3:
                 aux4 = int(y[6][m],16)
             #print(y[0][m],y[1][m],y[2][m],y[3][m],y[4][m],y[5][m],aux1,aux2,aux3,aux4)
-            print(int(check),int(y[1][m],16),int(y[2][m],16),int(y[3][m],16),int(y[4][m],16),int(y[5][m],16),aux1,aux2,aux3,aux4)
+            print(int(y[0][m],16),int(y[1][m],16),int(y[2][m],16),int(y[3][m],16),int(y[4][m],16),int(y[5][m],16),aux1,aux2,aux3,aux4)
 
-            q = ECoG(Value1= check,Value2= int(y[1][m],16),Value3= int(y[2][m],16),Value4= int(y[3][m],16),Value5= int(y[4][m],16),Value6= int(y[5][m],16),Value7=aux1,Value8=aux2,Value9=aux3,Value10=aux4, Time=timezone.now())
+            q = ECoG(Value1= int(y[0][m],16),Value2= int(y[1][m],16),Value3= int(y[2][m],16),Value4= int(y[3][m],16),Value5= int(y[4][m],16),Value6= int(y[5][m],16),Value7=aux1,Value8=aux2,Value9=aux3,Value10=aux4, Time=timezone.now())
             X.append(q)
             #print(X)
             #print(q)
@@ -129,5 +129,6 @@ while True:
             start = start +1
             print(hist,check,start)
         if(start > 2):
-            count = count + los -1
+            if(los!=4):
+                count = count + los -1
         print("                                                     Loss = ", count)

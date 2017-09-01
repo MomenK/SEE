@@ -71,7 +71,7 @@ var ECoG2 = new Chart(ctx2, {
                         tension:0,
                       },
                 point:{
-                        radius: 5 ,
+                        radius: 0 ,
                         hitRadius: 10, hoverRadius: 10
                       }
 
@@ -508,28 +508,28 @@ function setChart(){
   // Defaults = Value5
   // Pusher(ECoG5)
 
-  Defaults = []
-  Defaults = Value6
-  Pusher(ECoG6)
-
-  Defaults = []
-  Defaults = Value7
-  Pusher(Amp1)
-
-  Defaults = []
-  Defaults = Value8
-  Pusher(Amp2)
-
-  Defaults = []
-  Defaults = Value9
-  Pusher(Pot1)
-//  console.log("Here")
-//  console.log(Defaults)
-
-
-  Defaults = []
-  Defaults = Value10
-  Pusher(Pot2)
+ //  Defaults = []
+ //  Defaults = Value6
+ //  Pusher(ECoG6)
+ //
+ //  Defaults = []
+ //  Defaults = Value7
+ //  Pusher(Amp1)
+ //
+ //  Defaults = []
+ //  Defaults = Value8
+ //  Pusher(Amp2)
+ //
+ //  Defaults = []
+ //  Defaults = Value9
+ //  Pusher(Pot1)
+ // console.log("Here")
+ // console.log(Defaults)
+ //
+ //
+ //  Defaults = []
+ //  Defaults = Value10
+ //  Pusher(Pot2)
 
 
   Defaults = []
@@ -734,7 +734,7 @@ for (i=0; i< Defaults.length; ++i) {
 
 <br> <br>
     <form name="Updater" method="get" action="" oninput="x.value=parseInt(a.value)">
-      <input type="range" name="Text" id="a" value="0" min="1" max="60000" step="1"> Value = <output name="x"> 0</output>
+      <input type="range" name="Text" id="a" value="0" min="1" max="120000" step="1"> Value = <output name="x"> 0</output>
       <input type="submit" value="Submit" class="btn btn-primary">
     </form>
 

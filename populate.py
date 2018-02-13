@@ -29,7 +29,7 @@ select = 0
 
 
 while True:
-    #time.sleep(0.0004)
+    time.sleep(1)
 
 
     x1 = x1+1

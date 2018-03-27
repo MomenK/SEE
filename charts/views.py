@@ -35,7 +35,10 @@ class ChartData(APIView): #import view
     def get(self, request, format=None):
         global sent_id
         new_id = ECoG.objects.latest('id').id;
+
         if(sent_id != new_id):
+            if(new_id-sent_id>100):
+                sent_id=new_id-100
             queryset = ECoG.objects.filter(id__range=(sent_id+1,new_id))
             #print([p.Time for p in queryset])
             #print([p.Value for p in queryset])

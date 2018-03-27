@@ -567,15 +567,17 @@ for (i=0; i< Defaults.length; ++i) {
     {
   self.data.datasets[0].data.push(Defaults[i]); // Behind by one !!
   self.data.labels.push(Time[i]);
-  c = self.data.datasets[0].data.length;
+  c = self.data.datasets[0].data.length; //length of data array
   var limit = parseInt(document.getElementById("a").value);
 
-  var str = window.location.href;
+  var str = window.location.href; //URL of the site-> basically number of data points to show
   str = str.substring(str.indexOf("=") + 1);
 
 
   console.log("Here")
   console.log(str)
+
+  //pops data bigger than the limit
   if (c > parseInt(str)){
   self.data.datasets[0].data.shift();;
   self.data.labels.shift();

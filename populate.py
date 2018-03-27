@@ -1,4 +1,4 @@
-print "Populating Earth..."
+print ("Populating Earth...")
 
 import datetime
 
@@ -56,7 +56,7 @@ while True:
     q = ECoG(Value1=x1,Value2=x2,Value3=x3,Value4=x4,Value5=x5,Value6=x6,Value7=x7,Value8=x8,Value9=x9,Value10=x10, Time=timezone.now())
     q.save()
     #print q.id
-    print ECoG.objects.latest('id').id
+    print (ECoG.objects.latest('id').id)
     #queryset = ECoG.objects.all()
     #print([p.Time.strftime('%m/%d/%Y') for p in queryset])
     #print([str(p.Value) for p in queryset])
@@ -65,4 +65,4 @@ while True:
 
 
 
-print "Never Reach me"
+print ("Never Reach me")

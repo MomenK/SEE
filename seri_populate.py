@@ -1,6 +1,6 @@
 #export DJANGO_SETTINGS_MODULE=charts.settings
 
-print "Populating Earth with Serial..."
+print ("Populating Earth with Serial...")
 
 
 import datetime
@@ -25,10 +25,9 @@ word_count = 1
 index = (word_count-1)*6
 x =0
 
-
 import serial
 
-ser = serial.Serial('/dev/serial/by-id/usb-Texas_Instruments_XDS110__02.03.00.07__Embed_with_CMSIS-DAP_L1000912-if00', 115200, timeout=2, xonxoff=False, rtscts=False, dsrdtr=False)
+ser = serial.Serial('COM6', 115200, timeout=2, xonxoff=False, rtscts=False, dsrdtr=False)
 
 ser.flushInput()
 ser.flushOutput()
@@ -54,11 +53,13 @@ start = 0
 commit = 0
 X = []
 while True:
-    #print( ser.readline())
+    #while True:
+        #print( ser.readline())
     data_raw = ser.readline()[0:-2];
+    #data_raw = data_raw.decode('utf-8')
     data_bits = 336
     semantics = 3
-    #print(data_raw)
+    print(data_raw)
     if (len(data_raw) == data_bits ) :
         #data_raw = data_raw[0:-1]
         print(data_raw)

@@ -6,8 +6,8 @@ Software for data visulaization
 ### MySQL
 ### Django
   
-# Steps:
-1. Install Python 2.7 with pip
+# Intsallation steps:
+1. Install Python 3.6 with pip 
 2. Add python to the environment variables
 3. install XAMPP - need PHP and MySQL to be be able to use phpmyadmin
 4. install Django and dependancies
@@ -16,7 +16,7 @@ Software for data visulaization
   pip install django_extensions
   pip install djangorestframework
   ```
- Make sure to install mysql version 1.3.4, other version need Python3
+ Make sure to install mysql version 1.3.4 if you used Python 2.4
 
 ```Bash
   pip install mysqlclient==1.3.4
@@ -37,7 +37,16 @@ or through phpmyadmin operation tab
 ```Bash
   python manage.py  migrate --fake-initial
 ```
-8. run test code in the project directory 
+
+
+# Running steps:
+1- start Apache server and MySQL services
+2- start Django server
+```Bash
+python manage.py runserver
+```
+3. run test code in the project directory 
 ```Bash
   python populate.py
 ```
+

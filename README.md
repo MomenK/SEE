@@ -6,7 +6,7 @@ Software for data visulaization
 ### MySQL
 ### Django
   
-# Intsallation steps:
+# Installation steps:
 1. Install Python 3.6 with pip 
 2. Add python to the environment variables
 3. install XAMPP - need PHP and MySQL to be be able to use phpmyadmin

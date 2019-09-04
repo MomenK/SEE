@@ -1,5 +1,6 @@
-# SEE
-Software for data visulaization 
+# TBI Cloud Application
+Software for TBI data visulaization. 
+*For Windows setup change branch to Windows*
 # requirments 
 ### Xampp
 ### Python
